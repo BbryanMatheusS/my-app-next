@@ -1,0 +1,25 @@
+{
+  "name": "my-app-next",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Bryan Matheus <97106136+BbryanMatheusS@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@nextcss/reset": "^0.2.2-beta",
+    "babel-plugin-styled-components": "^2.0.7",
+    "next": "^12.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0",
+    "styled-components": "^5.3.5"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "resolutions": {
+    "styled-components": "^5"
+  }
+}
