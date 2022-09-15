@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
-
-export default function Button({children}){
-
-const Button = styled.button`
+const Default_Button = styled.button`
     height: 48px;
     width: 162px;
     border: 1px solid #000000;
@@ -14,8 +11,12 @@ const Button = styled.button`
     }
 `;
 
+export default function Button({children}){
     return (
-        <Button>{children}</Button>
+        <>
+            <Default_Button>{children}</Default_Button>
+        </>
+        
     )
 
 }

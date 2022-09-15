@@ -2,9 +2,8 @@ import styled from "styled-components";
  
 import Produto from "../../components/Produto";
 
-export default function Our_soluctions(){
 
-    const Conent = styled.div`
+const Conent = styled.div`
         align-items: center;
         padding: 2rem;
         display: flex;        
@@ -39,16 +38,16 @@ export default function Our_soluctions(){
 
     `;
     
-    const Carrosel = styled.div`
-        
-        width: 90%;
-        display: flex;
-        overflow-x: scroll;
-        scroll-behavior: smooth;
-        
-    `;
-
+const Carrosel = styled.div`
     
+    width: 90%;
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    
+`;
+
+export default function Our_soluctions(){
 
     return(
         
