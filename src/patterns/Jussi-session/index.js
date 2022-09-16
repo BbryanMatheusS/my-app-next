@@ -1,6 +1,5 @@
 import styled from "styled-components";
-
-import Button from "../../components/Button";
+import { Squared_Hollow } from "../../components/Button";
 
 
 const Content = styled.div`
@@ -43,7 +42,7 @@ const Content = styled.div`
 
     @media (min-width: 1024px) {
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: space-around;
 
         div{
             Button{
@@ -78,7 +77,7 @@ export default function Jussi_session() {
                     <div>
                         <h2>OLÁ, SOMOS A JUSSI</h2>
                         <p>A Jüssi é uma agência integrante do grupo global WPP que vem há 10 anos consolidando o pensamento voltado para produtos e resolução de problemas. Nosso área dedicada exclusivamente para Produtos Digitais é organizada em 6 especialidades: Product Managamenet, User Experience Design, SEO, Tecnologia, Agile e User Behavior Analytics.</p>
-                        <Button>Conheça a jussi</Button>
+                        <Squared_Hollow>Conheça a jussi</Squared_Hollow>
                     </div>
                     <img src="/img/Jussi-session/image-jussi.png"/>
                 </Content>

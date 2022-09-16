@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Button_2 from "../Button-2/index.js";
+import { Filled_Square } from "../../components/Button";
 
 const Produtos = styled.div`
     width: 200px;
@@ -49,7 +49,7 @@ export default function Produto() {
                 <li>Feature 2</li>
                 <li>Feature 3</li>
             </ul>
-            <Button_2>Ver solução</Button_2>
+            <Filled_Square Background_color="#03FFA5" Border="none">Ver solução</Filled_Square>
         </Produtos>
     )
 }
