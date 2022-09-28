@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Filled_Square } from "../../components/Button";
 
-const Produtos = styled.div`
+export const Produtos = styled.div`
     width: 200px;
     height: 350px;
     border: 1px solid grey;
@@ -13,6 +13,8 @@ const Produtos = styled.div`
 
     img{
         margin-bottom: 2rem;
+        width: 100px;
+        
     }
 
     p{
