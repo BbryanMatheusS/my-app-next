@@ -9,7 +9,7 @@ export const Produtos = styled.div`
     box-sizing: border-box;
     padding: 1rem;
     flex: none;
-    margin: 0 0.5rem;
+    margin: auto 0.5rem;
 
     img{
         margin-bottom: 2rem;

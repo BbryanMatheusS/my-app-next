@@ -51,8 +51,8 @@ const Content = styled.div`
                 line-height: 24px;
                 text-align: left;
                 width: 329px;
-            }     
-        }        
+            }
+        }
     } 
 `;
 
@@ -66,7 +66,7 @@ const Promocao = styled.div`
         overflow:visible;
         width: auto;
         position: relative;
-        margin: auto 0;        
+        margin: auto 0;
     }
 `;
 

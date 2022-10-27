@@ -37,10 +37,11 @@ const Conent = styled.div`
 `;
 
 const Carrosel = styled.div`
-  width: 90%;
+  width: 90%;  
   display: flex;
   overflow-x: scroll;
   scroll-behavior: smooth;
+  padding-bottom: 1rem;
 `;
 
 const Char = styled(Produtos)`
@@ -55,7 +56,7 @@ export default function Our_soluctions() {
   const fetchPerson = () => {
     let i = 1;
     // while(i<827){
-    while (i < 100) {
+    while (i < 50) {
       const personagens = async () => {
         const { data } = await api_Rick_Morty.get(`character/${i}`);
         setTimeout(() => {}, 1000);

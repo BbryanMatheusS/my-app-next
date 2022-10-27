@@ -37,6 +37,7 @@ export default function Teste() {
     console.log(personagens);
   }, []);
 
+  
   return (
     <>
       <h1>teste da api</h1>

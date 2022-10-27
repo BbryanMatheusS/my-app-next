@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
+import Link from "next/link";
 
 import { GoSearch } from 'react-icons/go';
 import { CgShoppingCart } from 'react-icons/cg';
@@ -82,11 +83,17 @@ const Barra_Pesquisa = styled.div`
         outline: 0;
         font-size: 1.2rem;
     }
+    
+    
 
 `;
 
 
 export default function Nav_Bar(){
+
+    const [search, setSearch] = useState("")
+
+    console.log(search)
     return(
         <>
             <Navigation>
@@ -97,8 +104,12 @@ export default function Nav_Bar(){
                 <ul>
                     <li>
                         <Barra_Pesquisa>
-                            <input type="text" placeholder="Buscar"/>
-                            <button type="submit"><GoSearch/></button>
+                            <input type="text" placeholder="Buscar" onChange={e => setSearch(e.target.value)}/>
+                            <Link href={`/champion/${search}`} passHref>
+                                {/* <a href={`/champion/${search}`}>  */}
+                                    <button type="submit"><GoSearch/></button>
+                                {/* </a> */}
+                            </Link>
                         </Barra_Pesquisa>
                     </li>
                     <li>login</li>
