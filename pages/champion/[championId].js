@@ -3,53 +3,84 @@ import styled from "styled-components"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 
+export const getStaticPaths = async() =>{
 
+    const api = 'https://ddragon.leagueoflegends.com/cdn/12.20.1/data/pt_BR/champion.json'
+    const res = await fetch(api)
+    const dados = await res.json()
+    const todosOsChamp = Object.keys(dados.data)
+    console.log(todosOsChamp)
 
+    // const paths = todosOsChamp.map((champ)=>{
+    //     return {
+    //         params:{championId: champ}
+    //     }
+    // })
 
-export default function Champions(){
-    const [champion,setChampion] = useState([]);
-    const [loading, setloading] = useState(true);
-
-    
-
-    const router = useRouter();
-    
-
-    const busca = router.query.id
-
-    
-    console.log(busca)
-
-    useEffect(() => {
-        setloading(true);
-        chamada()
-
-    },[busca])
-
-    const chamada = async () =>{
-        var API = `https://ddragon.leagueoflegends.com/cdn/12.19.1/data/pt_BR/champion/${busca}.json`
-        const {data} = await axios.get(API)
-        setChampion(data.data);
-
-        champion[`${busca}`].skins.map((skin)=>{
-            return(console.log(skin.num))
-        })
-        setloading(false);
+    return {
+        paths: [{ params: { championId: 'Aatrox' }}],
+        // paths,
+        fallback: true, 
     }
+}
 
-    setTimeout(() => {
-        console.log(champion[busca])
-    }, 1000);
+export const getStaticProps = async (context) =>{
 
-    if (loading){
-        setTimeout(()=>{},2000);
-        return <span>carregando dados....</span>;
-    } 
+    const id = context.params.championId
 
+    const res = await fetch(`http://ddragon.leagueoflegends.com/cdn/12.20.1/data/pt_BR/champion/${id}.json`)
+
+    const data = await res.json()
+
+    // console.log(data)
+
+    return {
+        props: {champion: data.data},
+    }
+}
+
+function Champions({champion}){
+
+    // const api = 'https://ddragon.leagueoflegends.com/cdn/12.20.1/data/pt_BR/champion.json'
+
+    // useEffect(() => {
+    //     const buscandoApi = async () =>{
+    //         const res = await fetch(api)
+    //         const dados = await res.json()
+    //         const todosOsChamp = Object.keys(dados.data)
+    //         // console.log(todosOsChamp)
+
+    //         const pat = todosOsChamp.map((champ)=>{
+    //             return{
+    //                 params:{pokemonId: (champ)}
+    //             }
+    //         })
+
+    //         console.log(pat)
+    //     }
+    //     buscandoApi()
+    // },[])
+
+    
+
+    const router = useRouter()
+
+    const busca = champion
+
+    const rota = router.query.championId
+
+    
+
+    // console.log(busca[rota].skins)
+    
+
+    if(router.isFallback){
+        return <div>Carregando...</div>
+    }
     
     const Content = styled.div`
         display: flex;
-        background: url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${busca}_0.jpg');
+        background: url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${rota}_0.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         width: 100%;        
@@ -78,7 +109,6 @@ export default function Champions(){
         }
 
     `
-
     const Skins = styled.div`
         display: flex;
         flex-direction: column;
@@ -97,7 +127,7 @@ export default function Champions(){
     `
     const Skin = styled.div`
         display: flex;
-        background: url('http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${busca}_${props => props.skin}.jpg');        
+        background: url('https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${rota}_${props => props.skin}.jpg');        
         width: 308px;
         height: 560px;
         color: white;
@@ -132,23 +162,23 @@ export default function Champions(){
         
     `
 
-    
-
     return(
         <section>
+
+            <h1>teste champions</h1>
             
             <Content>
-                <h1>{champion[`${busca}`].id} : {champion[`${busca}`].title} </h1>
-                <p>{champion[`${busca}`].lore}</p>
+                <h1>{champion[`${rota}`].id} : {champion[`${rota}`].title} </h1>
+                <p>{champion[`${rota}`].lore}</p>
             </Content>
 
             <Skins>
                 <h2>Skins</h2>
                 <All>                    
                     {
-                        champion[`${busca}`].skins.map((skins)=>{
+                        champion[`${rota}`].skins.map((skins)=>{
                             return(
-                                <Skin skin={skins.num}>
+                                <Skin key={skins.num} skin={skins.num}>
                                     <h3>{skins.name}</h3>
                                 </Skin>
                             )
@@ -159,3 +189,6 @@ export default function Champions(){
         </section>
     )
 }
+
+
+export default Champions;
