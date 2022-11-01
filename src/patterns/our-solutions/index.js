@@ -81,7 +81,7 @@ export default function Our_soluctions() {
   }, []);
 
   return (
-    <section>
+    <section id="Out_soluction">
       <Conent>
         <h2>
           <strong>Nossas soluções</strong>

@@ -10,6 +10,11 @@ li {
         width:32px;
         height: 32px;
     }
+
+    :hover{
+        /* transition: 0.5s;
+        transform:scale(1.5); */
+    }
 }
 `;
 
@@ -18,9 +23,9 @@ export default function Redes(){
     return (
         <>
             <Lista_redes_sociais>
-                <li><img src="/img/Footer/facebook.png"/></li>
-                <li><img src="/img/Footer/instagram.png"/></li>
-                <li><img src="/img/Footer/linkedin.png"/></li>                
+                <li><a href="https://pt-br.facebook.com/agencia.jussi/" target={"_blank"}><img src="/img/Footer/facebook.png"/></a></li>
+                <li><a href="https://www.instagram.com/jussi/" target={"_blank"}><img src="/img/Footer/instagram.png"/></a></li>
+                <li><a href="https://br.linkedin.com/company/agencia-jussi" target={"blank"}><img src="/img/Footer/linkedin.png"/></a></li>                
             </Lista_redes_sociais>
         </>
     )

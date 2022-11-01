@@ -60,10 +60,10 @@ export default function Logo_bar() {
                     <h3>Nossas principais lojas VTEX</h3>
                     <p><HiOutlineArrowNarrowRight /></p>
                     <ul>
-                        <li><img src="/img/Logo-bar/Brastemp.png"></img></li>
-                        <li><img src="/img/Logo-bar/Compracerta.png"></img></li>
-                        <li><img src="/img/Logo-bar/Consul.png"></img></li>
-                        <li><img src="/img/Logo-bar/The-bar.png"></img></li>
+                        <li><a href="https://www.brastemp.com.br/" target={"_blank"}><img src="/img/Logo-bar/Brastemp.png"></img></a></li>
+                        <li><a href="https://www.compracerta.com.br/" target={"_blank"}><img src="/img/Logo-bar/Compracerta.png"></img></a></li>
+                        <li><a href="https://www.consul.com.br/" target={"_blank"}><img src="/img/Logo-bar/Consul.png"></img></a></li>
+                        <li><a href="https://br.thebar.com/" target={"_blank"}><img src="/img/Logo-bar/The-bar.png"></img></a></li>
                     </ul>
                 </Logos>
             </section>

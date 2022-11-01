@@ -15,7 +15,9 @@ const Content = styled.div`
         padding-top: 1rem;
         box-sizing: border-box;
         
-        
+        a{
+            display: contents;
+        }
 
         h2{
             text-transform: uppercase;
@@ -77,7 +79,9 @@ export default function Jussi_session() {
                     <div>
                         <h2>OLÁ, SOMOS A JUSSI</h2>
                         <p>A Jüssi é uma agência integrante do grupo global WPP que vem há 10 anos consolidando o pensamento voltado para produtos e resolução de problemas. Nosso área dedicada exclusivamente para Produtos Digitais é organizada em 6 especialidades: Product Managamenet, User Experience Design, SEO, Tecnologia, Agile e User Behavior Analytics.</p>
-                        <Squared_Hollow>Conheça a jussi</Squared_Hollow>
+                        <a href="https://jussi.com.br/" target={"_blank"}>
+                            <Squared_Hollow>Conheça a jussi</Squared_Hollow>
+                        </a>
                     </div>
                     <img src="/img/Jussi-session/image-jussi.png"/>
                 </Content>

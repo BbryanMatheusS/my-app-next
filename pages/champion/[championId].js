@@ -5,21 +5,21 @@ import { useRouter } from "next/router"
 
 export const getStaticPaths = async() =>{
 
-    const api = 'https://ddragon.leagueoflegends.com/cdn/12.20.1/data/pt_BR/champion.json'
-    const res = await fetch(api)
-    const dados = await res.json()
-    const todosOsChamp = Object.keys(dados.data)
-    console.log(todosOsChamp)
+    // const api = 'https://ddragon.leagueoflegends.com/cdn/12.20.1/data/pt_BR/champion.json'              // sem o fallback
+    // const res = await fetch(api)              // sem o fallback
+    // const dados = await res.json()              // sem o fallback
+    // const todosOsChamp = Object.keys(dados.data)              // sem o fallback
+    // console.log(todosOsChamp)              // sem o fallback
 
-    // const paths = todosOsChamp.map((champ)=>{
+    // const paths = todosOsChamp.map((champ)=>{              // sem o fallback
     //     return {
     //         params:{championId: champ}
     //     }
     // })
 
     return {
-        paths: [{ params: { championId: 'Aatrox' }}],
-        // paths,
+        paths: [{ params: { championId: 'Aatrox' }}],         //com o fallback
+        // paths,                                             //sem o fallback
         fallback: true, 
     }
 }
@@ -28,11 +28,11 @@ export const getStaticProps = async (context) =>{
 
     const id = context.params.championId
 
-    const res = await fetch(`http://ddragon.leagueoflegends.com/cdn/12.20.1/data/pt_BR/champion/${id}.json`)
+    const ID = id.charAt(0).toUpperCase() + id.slice(1)
+
+    const res = await fetch(`http://ddragon.leagueoflegends.com/cdn/12.20.1/data/pt_BR/champion/${ID}.json`)
 
     const data = await res.json()
-
-    // console.log(data)
 
     return {
         props: {champion: data.data},
@@ -40,39 +40,24 @@ export const getStaticProps = async (context) =>{
 }
 
 function Champions({champion}){
+    const[fundo, setFundo] = useState(0)
 
-    // const api = 'https://ddragon.leagueoflegends.com/cdn/12.20.1/data/pt_BR/champion.json'
+    const handleClick = (event) =>{
+        setFundo(event)
+    }
 
-    // useEffect(() => {
-    //     const buscandoApi = async () =>{
-    //         const res = await fetch(api)
-    //         const dados = await res.json()
-    //         const todosOsChamp = Object.keys(dados.data)
-    //         // console.log(todosOsChamp)
 
-    //         const pat = todosOsChamp.map((champ)=>{
-    //             return{
-    //                 params:{pokemonId: (champ)}
-    //             }
-    //         })
+    // var teste = "primeira letra"
 
-    //         console.log(pat)
-    //     }
-    //     buscandoApi()
-    // },[])
+    // var letraMaiuscula = 
 
-    
+    // console.log(teste)
+    // console.log(letraMaiuscula)
+
 
     const router = useRouter()
 
-    const busca = champion
-
     const rota = router.query.championId
-
-    
-
-    // console.log(busca[rota].skins)
-    
 
     if(router.isFallback){
         return <div>Carregando...</div>
@@ -80,18 +65,22 @@ function Champions({champion}){
     
     const Content = styled.div`
         display: flex;
-        background: url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${rota}_0.jpg');
+        background: url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${rota}_${fundo}.jpg');
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: center;
         width: 100%;        
-        height: 605px;
-        flex-direction: column;       
+        height: auto;
+        min-height: 605px;
+        flex-direction: column;
+        justify-content:center ;
         
         
 
         h1{
             display: inline-flex;
-            font-size: 4rem;
+            font-size: 1.3rem;
+            font-weight: 700;
             margin: 2rem auto;
             color: rgba(0,0,0,1);
             background-color: rgba(250,250,250,0.2);
@@ -103,9 +92,26 @@ function Champions({champion}){
             margin: 2rem auto;
             color: rgba(0,0,0,1);
             background-color: rgba(250,250,250,0.4);
-            max-width: 70%;
-            font-size: 1.4rem;
+            max-width: 90%;
+            font-size: 1rem;
             padding: 1rem;
+        }
+
+        @media(min-width: 1024px){
+            
+            h1{
+                font-size: 4rem;
+                font-weight: normal;
+            }
+
+            p{
+                max-width: 70%;
+                font-size: 1.4rem;
+            }
+        }
+
+        @media(min-width: 1440px){
+            min-height: 750px;
         }
 
     `
@@ -131,7 +137,8 @@ function Champions({champion}){
         width: 308px;
         height: 560px;
         color: white;
-        margin: auto;
+        margin: 1rem auto;
+        transition: 0.5s;
 
         
         h3{
@@ -142,6 +149,10 @@ function Champions({champion}){
             background-color: rgba(250,250,250,0.4);
             padding: 0.5rem;
             text-align: center;
+        }
+
+        :hover{
+            transform: scale(1.1);
         }
 
     `
@@ -164,8 +175,6 @@ function Champions({champion}){
 
     return(
         <section>
-
-            <h1>teste champions</h1>
             
             <Content>
                 <h1>{champion[`${rota}`].id} : {champion[`${rota}`].title} </h1>
@@ -178,8 +187,8 @@ function Champions({champion}){
                     {
                         champion[`${rota}`].skins.map((skins)=>{
                             return(
-                                <Skin key={skins.num} skin={skins.num}>
-                                    <h3>{skins.name}</h3>
+                                <Skin key={skins.num} skin={skins.num} onClick={() => handleClick(skins.num)}>
+                                    <h3>{skins.name == "default" ? "Principal" : skins.name}</h3>
                                 </Skin>
                             )
                         })

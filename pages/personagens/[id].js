@@ -20,10 +20,6 @@ const Content = styled.div`
   
 `;
 
-
-
-
-
 export default function Personagem(){
     const [person,setPersorn] = useState([])
     

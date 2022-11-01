@@ -43,17 +43,45 @@ const Navigation = styled.ul`
             
             li{
             margin: 0px 10px;
+
+
+                a{
+                    position: relative;
+                    transition: 0.5s;
+
+                    ::after{
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        bottom: -3px;
+                        height: 3px;
+                        width: 0;
+                        border-radius: 2px;
+                        background-color: #03FFA5;
+                        transition: 0.5s ease ;
+                    }
+
+                    :hover::after{
+                        cursor: pointer;
+                        width: 100%;
+                    }
+
+                    :hover{
+                        font-size: 1.1rem;
+                        
+                    }
+                }
             };
+
+            
         }
         ul:nth-child(2){
             justify-content: end;
             li:nth-child(1){
             order:0;
             }
-            
         }
-    }   
-    
+    } 
 `;
 
 const Barra_Pesquisa = styled.div`
@@ -83,36 +111,34 @@ const Barra_Pesquisa = styled.div`
         outline: 0;
         font-size: 1.2rem;
     }
-    
-    
-
 `;
 
 
 export default function Nav_Bar(){
 
     const [search, setSearch] = useState("")
+    // console.log(search)
 
-    console.log(search)
+
     return(
         <>
             <Navigation>
                 <ul>
-                    <li>Nossas Soluçoes</li>
-                    <li>Conheça a Jussi</li>
+                    <li><a smooth href="#Out_soluction">Nossas Soluçoes</a></li>
+                    <li><a href="#">Conheça a Jussi</a></li>
                 </ul>
                 <ul>
                     <li>
                         <Barra_Pesquisa>
-                            <input type="text" placeholder="Buscar" onChange={e => setSearch(e.target.value)}/>
-                            <Link href={`/champion/${search}`} passHref>
+                            <input type="text" placeholder="Buscar" onfocus="this.value=''" onChange={e => setSearch(e.target.value)}  />
+                            <Link href={`/champion/${search.charAt(0).toUpperCase() + search.slice(1)}`} passHref>
                                 {/* <a href={`/champion/${search}`}>  */}
                                     <button type="submit"><GoSearch/></button>
                                 {/* </a> */}
                             </Link>
                         </Barra_Pesquisa>
                     </li>
-                    <li>login</li>
+                    <li><a href="#">login</a></li>
                     <li><CgShoppingCart/></li>
                 </ul>
             </Navigation>

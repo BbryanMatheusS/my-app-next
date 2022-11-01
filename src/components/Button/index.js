@@ -12,17 +12,19 @@ const Button_default = styled.button`
 
 export const Squared_Hollow = styled(Button_default)`    
     border-radius: 6px;
+    transition: 0.5s;
     :hover{
-        transition: 0.5s;
-        background-color: rgba(0, 0, 0, 0.200);
+        transform: scale(1.07);
+        background-color: rgba(0, 0, 0, 0.100);
         cursor: pointer;
     }
 `;
 
 export const Rounded_Hollow = styled(Button_default)`
     border-radius: 24px;
+    transition: 0.5s;
     :hover{
-        transition: 0.5s;
+        transform: scale(1.07);
         background-color: ${props => props.Font_color };
         color:${props => props.Background_color || "white"};
         cursor:pointer;
@@ -33,9 +35,10 @@ export const Filled_Square = styled(Button_default)`
     border-radius: 6px;    
     font-size: 1rem;
     font-weight: 500;
+    transition: 0.5s;
     :hover{
-        transition: 0.5s;
-        opacity: 0.6;
+        transform: scale(1.07);
+        opacity: 1;
         cursor: pointer;
     }
 `;

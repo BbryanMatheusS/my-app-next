@@ -13,6 +13,12 @@ const Foter = styled.footer`
     img{
         width: 142px;
         height: 27px;
+        transition: 0.5s;
+
+        :hover{
+            
+            transform: scale(1.3);
+        }
     }
 
     @media(min-width: 1024px) {
@@ -34,7 +40,7 @@ export default function Footer(){
     return(
         <footer>            
             <Foter>
-                <img src="/img/Footer/wppcompany.png"/>
+                <a href="https://www.wpp.com/" target={"_blank"}><img src="/img/Footer/wppcompany.png"/></a>
                 <Redes/>              
             </Foter>
         </footer>        
