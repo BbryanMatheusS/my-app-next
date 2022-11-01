@@ -1,8 +1,7 @@
 import '@nextcss/reset';
 import GlobalStyle from "../src/theme/GlobaStyle"
 
-
-import Layout from './Layout';
+import Layout from './layout';
 
 
 function MyApp({ Component, pageProps }) {
