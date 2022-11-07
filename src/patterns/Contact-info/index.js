@@ -33,7 +33,7 @@ export default function Contact() {
         <Background>
             <section>
                 <Conteudo>
-                    <Description>Essa loja foi construida usando uma das nossa soluçoes da plataforma VTEX. Tenha a sua.</Description>
+                    <Description>Essa loja foi construída usando uma das nossas soluções da plataforma VTEX. tenha a sua.</Description>
                     <p>Entre em contato</p>
                     <p>Comercial@jussi.com.br</p>
                 </Conteudo>
