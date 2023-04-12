@@ -39,5 +39,9 @@ Ou acessar o site https://my-app-next-bbryanmatheuss.vercel.app/ que esta no ar 
   </tr>
 </table>
 
-## :dart: Exemplos para barra de pesquisa: Aatrox , Draven , Amumu , Veigar
+## :dart: Exemplos para barra de pesquisa:
+* Aatrox
+* Draven
+* Amumu
+* Veigar
 
