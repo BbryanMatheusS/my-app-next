@@ -28,7 +28,7 @@ Ou acessar o site https://my-app-next-bbryanmatheuss.vercel.app/ que esta no ar 
   <tr>
     <td align="center">
       <a href="https://github.com/BbryanMatheusS">
-        <img src="https://avatars.githubusercontent.com/u/56259137?v=4" width="100px;" alt="Foto de Bryan Matheus no GitHub"/><br>
+        <img src="https://avatars.githubusercontent.com/u/97106136?v=4" width="100px;" alt="Foto de Bryan Matheus no GitHub"/><br>
         <sub>
           <b>Bryan Matheus</b>
         </sub>
