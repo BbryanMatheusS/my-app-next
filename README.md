@@ -10,10 +10,12 @@ Este é um projeto de Junior feito com o intuito de aprender mais sobre o Next u
 * Next
 * HTML5
 * CSS3
+* JavaScript
 * Styled Components
 * getStaticPaths
 * getStaticProps
 * getServerSideProps
+* axios
 
 ## :rocket: Rodando o projeto
 Para rodar o repositório é necessário clonar o mesmo, dar o seguinte comando para iniciar o projeto:
@@ -37,4 +39,5 @@ Ou acessar o site https://my-app-next-bbryanmatheuss.vercel.app/ que esta no ar 
   </tr>
 </table>
 
-## :dart: Status do projeto
+## :dart: Exemplos para barra de pesquisa: Aatrox , Draven , Amumu , Veigar
+
